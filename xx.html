@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dropdown Alignment Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+    }
+
+    header.navbar {
+      background-color: #1c1330;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo-img {
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    nav.nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav.nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav.nav-links a:hover,
+    nav.nav-links a.active {
+      text-decoration: underline;
+    }
+
+    /* DROPDOWN */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0; /* Aligns right edge of menu with right edge of button */
+      background-color: white;
+      color: #333;
+      border-radius: 6px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      min-width: 180px;
+      z-index: 9999;
+      padding: 10px 0;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f4f4f4;
+    }
+
+    .dropdown.show .dropdown-menu {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <a href="/" class="logo">
+    <img src="https://writteninthestars.site/images/logo.png" alt="Logo" class="logo-img">
+    <span class="logo-text">Written In The Stars</span>
+  </a>
+
+  <div class="nav-right">
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/articles">Articles</a>
+      <a href="/contact">Contact</a>
+
+      <div class="dropdown" id="myDropdown">
+        <button class="dropdown-toggle" onclick="toggleDropdown()">My Stars ▼</button>
+        <div class="dropdown-menu">
+          <a href="/stored-profiles">Stored Profiles</a>
+          <a href="/personal-info">Personal Info</a>
+          <a href="/transit-reports">Transit Reports</a>
+          <a href="/synastry-reports">Synastry Reports</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function toggleDropdown() {
+    const dropdown = document.getElementById("myDropdown");
+    dropdown.classList.toggle("show");
+  }
+
+  document.addEventListener("click", function (e) {
+    const dropdown = document.getElementById("myDropdown");
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("show");
+    }
+  });
+</script>
+
+</body>
+</html>
