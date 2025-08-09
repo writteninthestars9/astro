@@ -168,7 +168,7 @@ include 'header.php';
 </section>
 
 <!-- Google Places Autocomplete -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASW2NUt44PVRMSWG2jHuR4IgVCKX-e7bU&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=xxx&libraries=places"></script>
 <script>
   function initAutocomplete() {
     const options = { types: ['(cities)'] };
@@ -179,3 +179,4 @@ include 'header.php';
 </script>
 
 <?php include 'footer.php'; ?>
+
